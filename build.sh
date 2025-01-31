@@ -1,7 +1,7 @@
 #!/bin/bash
-
 # LaTeX build using PDFLaTeX and BiBTeX
 # -------------------------------------
+# pdflatex > bibtex > pdflatex > pdflatex
 #
 
 CWD=$(pwd)
