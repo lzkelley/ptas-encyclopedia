@@ -212,7 +212,7 @@ In general relativity, the `geodesic equation' governs motion due to gravity: \m
 \begin{align}\label{eq:spacetime-interval-integration}
     s = \int_{x(t)} \lrs[1/2]{\gmn \odv{x^\mu}{t} \odv{x^\nu}{t}} dt.
 \end{align}
-Consider test-mass A to be at coordinate position $x^A_i = 0$, and test-mass B to be at a coordinate position $x^B_i = \distcoord \hat{x}_1$.  {\color{red}JR: would it be better to use notation like $L_0$ for the nominal fixed length as opposed to $L_c$?} If we reuse the coordinate system with a GW traveling along the $\hat{x}_3$ direction (Eq.~\ref{eq:gw-metric-simple}), and recall that proper distance $L$ is the spacetime interval defined with $dx^0 = 0$, we can find that:
+Consider test-mass A to be at coordinate position $x^A_i = 0$, and test-mass B to be at a coordinate position $x^B_i = \distcoord \hat{x}_1$.  If we reuse the coordinate system with a GW traveling along the $\hat{x}_3$ direction (Eq.~\ref{eq:gw-metric-simple}), and recall that proper distance $L$ is the spacetime interval defined with $dx^0 = 0$, we can find that:
 \begin{align}\label{eq:length-simple}
     L = \int_0^{\distcoord} \lrs[1/2]{1 + h_{11}(t)} dx^1 \approx \lr{1 + \frac{1}{2} \hplus \, \exp\!\lrs{2\pi i f \lr{t - z/c}} }~\distcoord.
 \end{align}
@@ -229,14 +229,17 @@ The preceding calculation (Eq.~\ref{eq:length-simple}) requires the GW to be spa
 \begin{align}\label{eq:gw-timedelay-integral}
     c \, \Delta T(t) = \frac{1}{2} \hat{p}^i \hat{p}^j \int_{0}^{\distcoord} \hij\lrs{\xi\lr{s}} \, ds,
 \end{align}
-{\color{red}JR: in our paper, we write $t(s), x(s)$ instead of $\xi(s)$, which is important later on when you introduce $u(t,s)$ via $h[t(s),x(s)]=h[u(t,s)]$.
- currently you have $h[\xi(t,s)]$ after equation (9) which doesn't agree with $h[\xi(s)]$ in other places.} where the metric is integrated along a path specified by $\xi(s)$.  The configuration is shown in Fig.~\ref{fig:binary-pulsar-gw}(a).  We will see below that the same GW effects can be considered more conveniently with respect to a `redshift':
+ where the metric is integrated along a path specified by $\xi(s)$.  The configuration is shown in Fig.~\ref{fig:binary-pulsar-gw}(a).  We will see below that the same GW effects can be considered more conveniently with respect to a `redshift':
 % \footnote{In terms of a change in frequency, this would equivalently be $z(t) = \lr{\nu(t) - \nu_0}/\nu_0$.}
 \begin{align}\label{eq:gw-redshift-integral}
     z(t) \equiv \odv{\Delta T}{t} = \frac{1}{2} \frac{\hat{p}^i \hat{p}^j}{c} \int_{0}^{\distcoord} \pdv{\hij\lrs{\xi\lr{s}}}{t} \, ds.
 \end{align}
 Without a loss of generality, the path that light takes from the pulsar to the observer can be parameterized as, \mbox{$\xi(s) = \lr{t - \frac{1}{c}\lrs{\distcoord - s}, \lrs{\distcoord-s}\hat{p}^i}$}.
-For a plane wave, we can re-parameterize in terms of `retarded coordinates', $h\lrs{\xi\lr{t,s}} = h\lrs{u\lr{t,s}}$, where $u\lr{t,s} \equiv t\lr{s} - \hat{k}^i \, \xi_i\lr{s} / c = t - \lr{\distcoord - s}\lr{1 + \hat{k}^i \, \hat{p}_i} / c$.  It is easy to evaluate Eq.~\ref{eq:gw-redshift-integral} by expressing $\partial \hij / \partial t$ in terms of $\partial \hij / \partial s$; i.e.~we want to find the coordinate-time rate of change of the metric strain in terms of the rate of change along the trajectory.  If we assume that the frequency is constant along the trajectory, this is straightforward because $\hij$ only depends explicitly on the `retarded coordinate' $u$, which depends linearly on $t$ and $s$.  Thus, we can write:
+For a plane wave, we can re-parameterize in terms of `retarded coordinates', $h\lrs{\xi\lr{s}} = h\lrs{u\lr{s}}$, where
+\begin{align}
+    u\lr{s} \equiv t\lr{s} - \hat{k}^i \, \xi_i\lr{s} / c = t - \lr{\distcoord - s}\lr{1 + \hat{k}^i \, \hat{p}_i} / c.
+\end{align}
+It is easy to evaluate Eq.~\ref{eq:gw-redshift-integral} by expressing $\partial \hij / \partial t$ in terms of $\partial \hij / \partial s$; i.e.~we want to find the coordinate-time rate of change of the metric strain in terms of the rate of change along the trajectory.  If we assume that the frequency is constant along the trajectory, this is straightforward because $\hij$ only depends explicitly on the `retarded coordinate' $u$, which depends linearly on $t$ and $s$.  Thus, we can write:
 \begin{subequations}
 \begin{align}
     \pdv{h}{s} & = \odv{h}{u} \pdv{u}{s} = \frac{1}{c}\lr{1 + \hat{k}^i \hat{p}_i}, \\
@@ -256,7 +259,7 @@ Thus, the redshift is simply the difference of metric strains between the pulsar
     \label{fig:binary-pulsar-gw}
     \vspace{-2pt}
 \end{wrapfigure}
-Equation~\ref{eq:gw-redshift} describes the response of timing measurements to a passing GW plane-wave, with constant frequency.  Note the factor of $1 + \hat{k}^i \hat{p}_i$ which appears in the denominator, and also in the `phase' of the GW strain.   The situations in which the pulsar is aligned or anti-aligned with the source, $\hat{p} = \pm \hat{k}$, are worth particular consideration.  When the pulsar is in the direction that the GW is coming from ($\hat{p} = -\hat{k}$), the redshift goes to zero despite divergence in the denominator, because the numerator is also zero.  In a way, the numerator is zero for two separate reasons.  First, there is no component of the GW strain along the observer-pulsar direction for this configuration.  Second, the propagating photons are always `surfing' the same phase of the GW \citep{Anholm+2009}, so it necessarily arrives at the observer at the same GW phase as it left the pulsar.  However, in the case that the source and pulsar are anti-aligned, $\hat{p} = +\hat{k}$, the phase of the GW changes as the photons propagate to the observer, and thus the metrics differ between the Earth and Pulsar. {\color{red}JR: I don't think this statement is correct.  even for the case where the GW source and pulsar are anti-aligned, the response is zero, since $h_{ij}p^i p^j=0$ for this geometrical configuration. so the numerator in (11) is again zero, while the denominator is non-zero.} This nicely illustrates that the phase information is not symmetric to flipping the GW propagation direction.  While the GWs are purely quadrupolar, the response of a detector is \textit{not purely quadrupolar}.  See \citet{Romano+Allen-2024} for an excellent discussion.
+Equation~\ref{eq:gw-redshift} describes the response of timing measurements to a passing GW plane-wave, with constant frequency.  Note the factor of $1 + \hat{k}^i \hat{p}_i$ which appears in the denominator, and also in the `phase' of the GW strain.   The situations in which the pulsar is aligned or anti-aligned with the source, $\hat{p} = \pm \hat{k}$, are worth particular consideration.  When the pulsar is in the direction that the GW is coming from ($\hat{p} = -\hat{k}$), the redshift goes to zero despite divergence in the denominator, because the numerator is also zero.  In a way, the numerator is zero for two separate reasons.  First, there is no component of the GW strain along the observer-pulsar direction for this configuration.  Second, the propagating photons are always `surfing' the same phase of the GW \citep{Anholm+2009}, so it necessarily arrives at the observer at the same GW phase as it left the pulsar.  However, in the case that the source and pulsar are anti-aligned, $\hat{p} = +\hat{k}$, the phase of the GW changes as the photons propagate to the observer, and thus the metrics differ between the Earth and Pulsar\footnote{Note, however, that the overall response is still zero, but in this case only for 'one reason'---that the strain is again zero along the observer-pulsar direction.}.  This nicely illustrates that the phase information is not symmetric to flipping the GW propagation direction.  While the GWs are purely quadrupolar, the response of a detector is \textit{not purely quadrupolar}.  See \citet{Romano+Allen-2024} for an excellent discussion.
 
 It will be convenient to rearrange Eq.~\ref{eq:gw-redshift} by grouping the phase and amplitude terms such that $h^a_{ij} = h^a \poltens^a_{ij}$, and also introducing \textit{geometrical projection factors} (or \textit{antenna response functions}) $F^a(k_i)$:
 \begin{subequations}
@@ -291,15 +294,20 @@ It is convenient to consider the Fourier transform of signals, and their cross-c
 \begin{align}\label{eq:fourier-transform}
     \tilde{h}(f) \equiv \lim_{\tobs\rightarrow \infty} \int_{-\tobs/2}^{+\tobs/2} h(t) \, e^{-2 \pi i f t} \, d t.
 \end{align}
-Here we use $\tilde{h}(f)$ to emphasize that this is a Fourier transform, however we will later follow the convention used in the literature that both the time-domain and frequency-domain GW-strain use the same symbol $h: h(t) \leftrightarrow h(f)$, which is motivated by sinusoidal waveforms.  We can use Parseval's theorem to relate the signal-power in time and frequency, and thereby define the (one-sided) power spectral density $S_h(f)$ {\color{red}JR: I think the way that you've defined $S_h(f)$ with the factor of 2 in (17) and no 1/2 in (18) means that it's a 2-sided power spectrum, not 1-sided.}:
+Here we use $\tilde{h}(f)$ to emphasize that this is a Fourier transform, however we will later follow the convention used in the literature that both the time-domain and frequency-domain GW-strain use the same symbol $h: h(t) \leftrightarrow h(f)$, which is motivated by sinusoidal waveforms.  We can use Parseval's theorem to relate the signal-power in time and frequency, and thereby define the power spectral density $S_h(f)$:
 \begin{align}\label{eq:psd_fourier}
     P_h & = \frac{1}{\tobs} \int_{-\tobs/2}^{+\tobs/2} \left| h(t) \right|^2 dt = \frac{1}{\tobs} \int_{-\infty}^{+\infty} \left| \tilde{h}(f) \right|^2 df \equiv 2 \int_{0}^{+\infty} S_h(f) \, df.
 \end{align}
 For a stationary process, i.e.~one whose statistical properties are independent of time, each frequency is uncorrelated such that,
 \begin{align}
-    \left< \tilde{h}(f) \, \tilde{h}(f') \right> = S_h(f) \, \delta(f - f'),
+    % \left< \tilde{h}(f) \, \tilde{h}(f') \right> = S_h(f) \, \delta(f - f'),
+    \left< \tilde{h}(f) \, \tilde{h}(f') \right> =
+    \begin{cases}
+        S_h(f) & f = f', \\
+        0      & f \neq f'.
+    \end{cases}
 \end{align}
-where $\delta(x\!=\!0) = 1$ {\color{red}JR: I don't think this is correct, since the delta in (18) is a dirac delta function which is infinite (or undefined) for zero argument, not 1.  what you've written is more appropriate for a kronecker delta.} and $\delta(x\!\neq\!0) = 0$.  This allows us to define frequency-specific cross-correlations as,
+This allows us to define frequency-specific cross-correlations as,
 \begin{align}\label{eq:redshift-correlation-frequency}
     \rho_{ps}(f) \approx S_h(f) \sum_a F^a_p \, F^a_s.
 \end{align}
@@ -309,7 +317,7 @@ where $\delta(x\!=\!0) = 1$ {\color{red}JR: I don't think this is correct, since
 \begin{align}
     \langle \rho_{ps} \rangle_\Omega & = \langle \big| h_E \big|^2 \rangle_T \, \hdfunc(\gamma) = P_h \, \hdfunc(\gamma), \\
     \langle \rho_{ps}(f) \, \rangle_\Omega & = S_h(f) \, \hdfunc(\gamma), \\
-    \hdfunc(\gamma) & \equiv \frac{1}{3} - \frac{1}{6} \scale{1 - \cospar{\gamma}}{2} + \scale{1 - \cospar{\gamma}}{2} \ln \scale{1 - \cospar{\gamma}}{2}.
+    \hdfunc(\gamma) & \equiv \frac{1}{3} - \frac{1}{6} \scale{1 - \cospar{\gamma}}{2} + \scale{1 - \cospar{\gamma}}{2} \ln \scale{1 - \cospar{\gamma}}{2}. \label{eq:hd_hd}
 \end{align}
 \end{subequations}
 The \term{Hellings-Downs correlation}, $\hdfunc(\gamma)$, depends entirely on the angle between pulsars: $\cospar{\gamma} = \hat{p}_{p,i} \, \hat{p}_s^i$.  The Hellings-Downs curve, shown in Fig.~\ref{fig:binary-pulsar-gw}(b), is the `smoking gun' for evidence of a GW signal in PTA data.
@@ -327,12 +335,10 @@ In general, GW production must be calculated numerically.  However, an analytic 
 \begin{subequations}
 \begin{align}\label{eq:power-quadrupole}
     \frac{dL^a}{d\Omega} & = \frac{G}{8\pi c^5} \lrs[2]{\frac{d^3 Q_{ij}}{dt^3} \poltens^a_{ij}}, \\
-    Q_{ij}(t) & \equiv \int \lrs{x_i \, x_j - \frac{1}{3} \delta_{ij} x_k \, x^k} \, \rho(x,t) \, d^3 x,
+    Q_{ij}(t) & \equiv \int \lrs{x_i \, x_j - \frac{1}{3} \delta_{ij} x_k \, x^k} \, \rho(t,x) \, d^3 x,
 \end{align}
 \end{subequations}
-{\color{red}JR: note that sometimes you have the spacetime arguments as $(x,t)$, other times as $(t,x)$; so a notational consistency question.}
-where $\rho$ is the mass density.
-For a set of point-masses $m_k$ we can write, $Q_{ij} = \sum_k m_k \, x_{k,i} \, x_{k,j}$. {\color{red}JR: shouldn't you also subtract off $(1/3) \delta_{ij} x_{k,i}x_k{}^i$ for this discrete $Q_{ij}$?}  For a binary in a circular orbit, GWs are emitted at twice the orbital frequency.  In this case, the rest-frame total luminosity, summed over both polarizations and integrated over all angles, is:
+where $\rho$ is the mass density.  For a binary in a circular orbit, GWs are emitted at twice the orbital frequency.  In this case, the rest-frame total luminosity, summed over both polarizations and integrated over all angles, is:
 \begin{subequations}\label{eq:lum_gw_circ}
 \begin{align}
     \lgwcirc & = \frac{32}{5 G c^5} \left(G\mchirp\right)^{10/3} \left( 2\pi \frstorb \right)^{10/3}, \\
@@ -444,7 +450,7 @@ The second relation includes the insight that each merger leads to a redshift-ze
 \begin{figure}
     \vspace{-10pt}
     \includegraphics[width=\textwidth]{{{figs/gwb.pdf}}}
-    \caption{\textbf{(a) GWs from binary populations.} GWB (\textit{blue}): with $50\%, 90\%, 98\%$ intervals (contours), and five random realizations (\textit{lines}); loudest CW in each frequency bin (\textit{orange}): same contours and random realizations (\textit{circles}).  Idealized GWB spectrum (\textit{black {\color{red}JR: purple?} dashed}) from Eq.~\ref{eq:phinney_gwb_spectrum}.  Schematic PTA sensitivity curves (blue) for 15yrs (solid) and 20yrs (dashed) of data.  \textbf{(b) Effects of SMBH masses and merger rates} on GWB (blues), showing $50\%$ intervals for three population models, each calibrated to the same idealized amplitude - decreasing merger rates as masses increase.  \textbf{(c) Effects of environmental hardening} on GWB (reds), $50\%$ intervals for models with three different strengths of environmental interactions at sub-parsec separations.  \textbf{(d) Effects of binary eccentricity} on GWB (greens), $50\%$ intervals of varying binary eccentricities ($0.5, 0.9, 0.95$ initialized at $0.1 \, \pc$).}
+    \caption{\textbf{(a) GWs from binary populations.} GWB (\textit{blue}): with $50\%, 90\%, 98\%$ intervals (contours), and five random realizations (\textit{lines}); loudest CW in each frequency bin (\textit{orange}): same contours and random realizations (\textit{circles}).  Idealized GWB spectrum (\textit{purple dashed}) from Eq.~\ref{eq:phinney_gwb_spectrum}.  Schematic PTA sensitivity curves (blue) for 15yrs (solid) and 20yrs (dashed) of data.  \textbf{(b) Effects of SMBH masses and merger rates} on GWB (blues), showing $50\%$ intervals for three population models, each calibrated to the same idealized amplitude - decreasing merger rates as masses increase.  \textbf{(c) Effects of environmental hardening} on GWB (reds), $50\%$ intervals for models with three different strengths of environmental interactions at sub-parsec separations.  \textbf{(d) Effects of binary eccentricity} on GWB (greens), $50\%$ intervals of varying binary eccentricities ($0.5, 0.9, 0.95$ initialized at $0.1 \, \pc$).}
     \label{fig:gwb}
     \vspace{-10pt}
 \end{figure}
@@ -506,7 +512,7 @@ Before considering the detection of GWs, consider the much simpler case of placi
 \begin{align}
     S_h \propto \langle \Delta h^2 \rangle = \sigma_h^2 \lesssim \frac{\langle \Delta t^2 \rangle}{\tobs^2} = \frac{\sigma_{\Delta t}^2}{\tobs^2} \propto S_\trt{TOA}.
 \end{align}
-Here, $\Delta t$ is the TOA deviation, $\tobs$ is the total observing duration, and $\sigma_h$ and $\sigma_{\Delta t}$ are the standard-deviations in strain and TOA deviations respectively\footnote{The variance of a quantity $x$ is, \mbox{$\sigma_x^2 \equiv \langle \Delta x^2 \rangle - \langle \Delta x \rangle^2$}, and both strain and timing residuals have zero means s.t.~$\sigma_x^2 \approx \langle \Delta x^2 \rangle$.  {\color{red}JR: I think you mean to say that $\sigma_x^2 = \langle(\Delta x)^2\rangle = \langle(x-\langle x\rangle)^2\rangle = \langle x^2\rangle - \langle x\rangle^2$, which effects two equations here.}}
+Here, $\Delta t$ is the TOA deviation, $\tobs$ is the total observing duration, and $\sigma_h$ and $\sigma_{\Delta t}$ are the standard-deviations in strain and TOA deviations respectively\footnote{The variance of a quantity $x$ is, \mbox{$\sigma_x^2 \equiv \langle x^2 \rangle - \langle x \rangle^2$}, and both strain and timing residuals have zero means s.t.~$\sigma_x^2 \approx \langle x^2 \rangle$.}
 
 Typically we will characterize GW power in terms of a power spectrum over frequencies $S_h(f)$ (Sec.~\ref{sec:timing-deviations-spatial-correlations}).  Recall that the measurable GW frequencies are limited to falling between the Rayleigh and Nyquist frequencies, i.e.~$\tobs^{-1} \lesssim f \lesssim \lr{2\,\dtobs}^{-1}$, for a typical time between TOA measurements (`sampling interval' or `cadence'), $\dtobs$.  Specifically, the Fourier frequency basis is $f_i = i / T$, for integer values $i \in \{1, \dots, N_f\}$.  The minimum frequency, and the frequency bin-width, is the `Rayleigh' frequency, $f_1 = \tobs^{-1}$.  The maximum frequency for evenly sampled data is the `Nyquist' frequency, $f_{N_f} = \lr{2\,\dtobs}^{-1}$, such that the number of independent frequencies is $N_f \approx T / \lr{2\, \dtobs}$, although $f_{N_f}$ becomes poorly defined for irregularly sampled data, which is typically the case for PTAs.
 
@@ -518,7 +524,7 @@ The accuracy by which TOAs can be measured is determined by a combination of the
 \begin{align}
     \scale[2]{\sigmaradio}{w} \approx \scale{w}{P - w} \, \scale[-1]{S_\tr{pulsar}}{S_\tr{radio}} \, N_\tr{radio}^{-1},
 \end{align}
-i.e.~the precision of the pulsar TOA ($\sigmaradio$) over the pulse width ($w$), is the ratio of the pulse width to non-pulse (`noise') for pulsar period $P$, divided by the ratio of power from the pulsar signal to the instrument noise, divided by the number of measurements.  This is called the `radiometer equation'.  The number of measurements (samples) can be expressed as a product of observing duration, bandwidth (i.e.~data sampling rate), and number of independent polarizations (two): \mbox{$N_\tr{radio} = T_\tr{TOA} \cdot \Delta f \cdot 2$}.  We can then rewrite the radiometer equation adopting typical values as\footnote{The instrument noise is often expressed as a product of a `system temperature' and `instrument gain': $(T_\tr{radio} / 50~\mathrm{K}) = (S_\tr{radio} / 10~\mathrm{J}) \cdot (G_\tr{radio} / 5~\mathrm{K~Jy}^{-1})$.  In radio astronomy the `Jansky' unit of spectral flux density is sadly {\color{red}JR: I don't know how to interpret `sadly' here.} common, \mbox{$1~\mathrm{Jy} \equiv 10^{-23} \textrm{ erg s}^{-1} \textrm{ cm}^{-2} \textrm{ Hz}^{-1} = 10^{-26} \textrm{ J s}^{-1} \textrm{ m}^{-2} \textrm{ Hz}^{-1}$}.}:
+i.e.~the precision of the pulsar TOA ($\sigmaradio$) over the pulse width ($w$), is the ratio of the pulse width to non-pulse (`noise') for pulsar period $P$, divided by the ratio of power from the pulsar signal to the instrument noise, divided by the number of measurements.  This is called the `radiometer equation'.  The number of measurements (samples) can be expressed as a product of observing duration, bandwidth (i.e.~data sampling rate), and number of independent polarizations (two): \mbox{$N_\tr{radio} = T_\tr{TOA} \cdot \Delta f \cdot 2$}.  We can then rewrite the radiometer equation adopting typical values as\footnote{The instrument noise is often expressed as a product of a `system temperature' and `instrument gain': $(T_\tr{radio} / 50~\mathrm{K}) = (S_\tr{radio} / 10~\mathrm{J}) \cdot (G_\tr{radio} / 5~\mathrm{K~Jy}^{-1})$.  In radio astronomy the `Jansky' unit of spectral flux density is sadly common, \mbox{$1~\mathrm{Jy} \equiv 10^{-23} \textrm{ erg s}^{-1} \textrm{ cm}^{-2} \textrm{ Hz}^{-1} = 10^{-26} \textrm{ J s}^{-1} \textrm{ m}^{-2} \textrm{ Hz}^{-1}$}.}:
 \begin{align}\label{eq:radiometer-equation-fiducial}
     \sigmaradio \approx 100~\ns \; \scale[3/2]{w}{1~\ms} \scale[-1/2]{S_\tr{pulsar}}{1~\mathrm{mJy}} \scale[1/2]{S_\tr{radio}}{10~\mathrm{Jy}} \scale[-1/2]{T_\tr{TOA}}{30 \, \min} \scale[-1/2]{P}{10~\ms} \scale[-1/2]{\Delta f}{100~\mathrm{Mhz}}.
 \end{align}
@@ -532,7 +538,7 @@ The goal of pulsar timing is to capture the deterministic component through a \t
 \begin{align}\label{eq:residual-timing-model}
     r\lr{t|\alpha} \equiv \dt(t) - \Dt\lr{t|\alpha}.
 \end{align}
-{\color{red}JR: In (47), (48), etc., do you really mean $\delta t(t)$ or $\tau(t)$, since I thought that you were talking about forming timing residuals by taking the the measured TOAs (which I denote here by $\tau(t)$) and subtracting off the expected TOAs (obtained from a timing model).}  The timing model is fit to the data by constructing a likelihood that assumes the residuals to be distributed as multidimensional Gaussian noise:
+The timing model is fit to the data by constructing a likelihood that assumes the residuals to be distributed as multidimensional Gaussian noise:
 \begin{align}\label{eq:toa-likelihood}
     p\lr{r|\Dt} = \lrs[-1/2]{\det\lr{2\pi \, N_{ij}}} \exp \lrs{ -\frac{1}{2} r_i \, N^{-1}_{ij} \, r_j }.
 \end{align}
@@ -581,9 +587,8 @@ Typically, the roughly-dozen different physical components of noise can be treat
 \end{align}
 These timing model components can be incorporated either in the time-domain or in the frequency/Fourier domain.  Timing components in the frequency basis can still be part of the `linearized' timing-model because the \textit{coefficients} are the model parameters of interest:
 \begin{align}
-    \Delta t^\tr{freq}_j = F^\tr{freq}_{jk} \alpha^\tr{freq}_k = \sum_{k=0}^{N_f} \alpha^\tr{freq}_k \exp\lr{-2\pi i k t_j / \tobs},
+    \Delta t^\tr{freq}_j = F^\tr{freq}_{jk} \alpha^\tr{freq}_k = \sum_{k=0}^{N_f} \alpha^\tr{freq}_k \exp\lr{-2\pi i \ k \ t_j / \tobs},
 \end{align}
-{\color{red}JR: should the lhs have a `time' superscript since the rhs is a Fourier series expansion of a time series}
 where $F^\tr{freq}_{jk}$ is the timing model for Fourier-basis frequency $k$ at time $t_j$ and $\alpha^\tr{freq}_k$ is the Fourier coefficient for frequency $k$.  Many of the timing-model components are periodic, and most of the noise components are stationary (i.e.~depending not on individual times, but on time lags: $|t_i - t_j|$), making the Fourier basis particularly convenient.  For a much more thorough description of the construction of a timing model including time-domain and frequency-domain components, see \citet{Taylor-2021}.  A subset of important components of the timing model are briefly described here.
 \begin{itemize}
     \item \textbf{ISM dispersion}: a plasma propagation effect which delays EM waves in a EM-frequency ($\nu$) dependent manner \citep{Draine-2011}:
@@ -634,7 +639,7 @@ Consider two different data streams of residuals, $r_i(t)$ and $r_j(t)$, from tw
     % C_{ij}(t) & \equiv r_i(t) \, r_j(t), \\
     \langle \rho_{ij} \rangle & = \langle s^2 \rangle + \langle s \, n_i \rangle + \langle s \, n_j \rangle + \langle n_i \, n_j \rangle \approx \langle s^2 \rangle.
 \end{align}
-The approximation is valid as long as any non-GW correlations between two pulsars have correctly been subtracted in the timing models, and thus the strains and both noise streams are uncorrelated\footnote{Noises and strains are un-correlated both in time and ensembles: $\lim_{T \rightarrow \infty} \rho_{ij} = \langle s^2 \rangle_T$, and also \mbox{$\langle \rho_{ij} \rangle = \left< s^2 \right>_E$}.  However, $\langle s^2 \rangle_T \neq \langle s^2 \rangle_E$, because our `ensemble' is composed of different population realizations, in which case the GWs are not ergodic. {\color{red}JR: why doesn't the ergodic hypothesis hold?} Variances will also differ in the two cases.}: \mbox{$\langle s \, n_i \rangle \approx \langle s \, n_j \rangle \approx \langle n_i \, n_j \rangle \approx 0$}.  If our data streams are pulsar redshifts, then we can identify Eq.~\ref{eq:cross-correlation} with Eqs.~\ref{eq:hd}, i.e.~\mbox{$\langle \rho_{ij} \rangle_{i \neq j} = \langle \big| h_E \big|^2 \rangle_T \, \hdfunc(\gamma) = P_h \, \hdfunc(\gamma)$}.  The cross-correlation gives us the GW power, filtered by the detector response: the Hellings-Downs correlations.
+The approximation is valid as long as any non-GW correlations between two pulsars have correctly been subtracted in the timing models, and thus the strains and both noise streams are uncorrelated\footnote{Noises and strains are un-correlated both in time and ensembles: $\lim_{T \rightarrow \infty} \rho_{ij} = \langle s^2 \rangle_T$, and also \mbox{$\langle \rho_{ij} \rangle = \left< s^2 \right>_E$}.  However, $\langle s^2 \rangle_T \neq \langle s^2 \rangle_E$, because our `ensemble' is composed of different population realizations.  Variances will also differ in the two cases.}: \mbox{$\langle s \, n_i \rangle \approx \langle s \, n_j \rangle \approx \langle n_i \, n_j \rangle \approx 0$}.  If our data streams are pulsar redshifts, then we can identify Eq.~\ref{eq:cross-correlation} with Eqs.~\ref{eq:hd}, i.e.~\mbox{$\langle \rho_{ij} \rangle_{i \neq j} = \langle \big| h_E \big|^2 \rangle_T \, \hdfunc(\gamma) = P_h \, \hdfunc(\gamma)$}.  The cross-correlation gives us the GW power, filtered by the detector response: the Hellings-Downs correlations.
 
 To make estimates from data, it is convenient to construct a likelihood function.  Let us again consider two, discretely sampled data streams $r_{1i} \equiv r_1(t_i)$, and $r_{2i} \equiv r_2(t_i)$ each with $\nsamp$ samples\footnote{In practice, some sort of interpolation or binning must be performed to get samples at matching times, unless we are working in frequency-space (see below).}, which we concatenate into a single array {$r_i = \{r_{11}, r_{12}, \dots, r_{1\nsamp}, r_{21}, r_{22}, \dots, r_{2\nsamp} \}$}.  We can write the likelihoods in the presence of a signal, and in the presence of only noise as:
 \begin{align}\label{eq:residual-correlation-likelihood}
@@ -698,22 +703,30 @@ It is often convenient to define another statistic to be twice the logarithm of 
 
 Typically noise will, however, be correlated in time.  In this case the likelihoods (Eq.~\ref{eq:residual-correlation-likelihood}) cannot be maximized analytically.  However, an optimal statistic can still be calculated numerically and applied directly to sets of TOAs from an arbitrary number of pulsar pairs \citep[see Ch.~7 of][]{Taylor-2021}.  While the noise may be correlated in time, it is typically stationary, such that it is uncorrelated in frequency space.  In that case, a frequency-domain version of Eq.~\ref{eq:cross-correlation} will still hold with, $\langle \rho(f) \rangle = \langle \tilde{r}_1(f) \, \tilde{r}^*_2(f) \rangle \approx \langle \tilde{s}(f) \, \tilde{s}^*(f) \rangle$, where $\tilde{r}^*$ is the complex conjugate of the Fourier transform $\tilde{r}(f) \equiv \mathcal{F}\lr{r(t)}$, given in Eq.~\ref{eq:fourier-transform}.  In this case, the frequency-space covariance matrices look very similar to Eq.~\ref{eq:correlation-covariance-matrices}, and analytic solutions analogous to Eq.~\ref{eq:correlation-ml-ratio} and Eq.~\ref{eq:correlation-det-stat} can again be found \citep[see Sec.~4.3 of][]{Romano+Cornish-2017}.
 
-{\color{red}JR: I think there are problems with the following paragraph.  I'm not sure how best to rewrite it, given that the OS has three different use-cases in the literature: (i) as a cross-correlation estimator $\hat\rho_{ab}$ for individual pulsar pairs, whose expectation value $\langle\hat\rho_{ab}\rangle=A_{\rm gw}^2 \Gamma_{ab}$; (ii) as a quadratic estimator $\hat A^2_{\rm gw}$ of the squared GW amplitude using all possible pairs of pulsars, and (iii) a SNR detection statistic $\hat\rho \equiv \hat A_{\rm gw}^2/\sigma_0$, where $\sigma^2_0$ is the variance of $\hat A_{\rm gw}^2$ in the absence of a GW signal. (For a detection statistic you always want the variance of your statistic to be calculated in the absence of a signal.) It looks like you are following the presentation from Rosado et al.  If so, then (70) below should be
-$S_{ijk} =s_i^*(f_k)s_j(f_k)$ without any multiplicative factors or integral.  Also, $S_{h0}(f)$ is usually take to be a {\it normalized} power spectrum, written with an overbar like $\bar{S}_{h0}(f)$ such that $S_{h0}(f)= A_{\rm gw}^2 \bar{S}_{h0}(f)$.  You need to use a normalized power spectrum when constructing a statistic, since you don't know a~priori what the amplitude of the GW signal is; that's usually what your statistic is trying to estimate.  I'd be happy to talk about this some more via zoom if you want.}
+% {\color{red}JR: I think there are problems with the following paragraph.  I'm not sure how best to rewrite it, given that the OS has three different use-cases in the literature: (i) as a cross-correlation estimator $\hat\rho_{ab}$ for individual pulsar pairs, whose expectation value $\langle\hat\rho_{ab}\rangle=A_{\rm gw}^2 \Gamma_{ab}$; (ii) as a quadratic estimator $\hat A^2_{\rm gw}$ of the squared GW amplitude using all possible pairs of pulsars, and (iii) a SNR detection statistic $\hat\rho \equiv \hat A_{\rm gw}^2/\sigma_0$, where $\sigma^2_0$ is the variance of $\hat A_{\rm gw}^2$ in the absence of a GW signal. (For a detection statistic you always want the variance of your statistic to be calculated in the absence of a signal.) It looks like you are following the presentation from Rosado et al.  If so, then (70) below should be $S_{ijk} =s_i^*(f_k)s_j(f_k)$ without any multiplicative factors or integral.  Also, $S_{h0}(f)$ is usually take to be a {\it normalized} power spectrum, written with an overbar like $\bar{S}_{h0}(f)$ such that $S_{h0}(f)= A_{\rm gw}^2 \bar{S}_{h0}(f)$.  You need to use a normalized power spectrum when constructing a statistic, since you don't know a~priori what the amplitude of the GW signal is; that's usually what your statistic is trying to estimate.  I'd be happy to talk about this some more via zoom if you want.}
 We wish to construct an `\term{optimal statistic}' ($\ostat$) defined to maximize the SNR.  Following \citet[][Sec.~III]{Anholm+2009}\footnote{See also \citet{Rosado+2015}, whose notation we employ.}, we define the SNR as \mbox{$\tr{SNR}^2 = \langle \ostat(\tr{GW}) \rangle^2 / \langle \ostat^2(\tr{noise}) \rangle$}, which is the power of the statistic in the presence of GWs, divided by the variance of the statistic in the absence of GWs, such that $\tr{Var}\lr{\ostat(\tr{noise})} = \langle \ostat^2(\tr{noise}) \rangle - \langle \ostat(\tr{noise}) \rangle^2 = \langle \ostat^2(\tr{noise}) \rangle$.  This definition of the SNR is appropriate for weak GW signals, i.e.~when the SNR is small.  The optimal statistic can then be calculated as,
+% [Rosado+2015] Eq. A10
 \begin{align}\label{eq:optimal_statistic}
-    \ostat = \sum_{i=1}^{j} \sum_{j=1}^{N_p} \sum_{k=1}^{\lr{N_f}_{ij}} \frac{\Gamma_{ij} \, S_{h0}(f_k)}{P_i(f_k) \, P_j(f_k)} s_{ijk}.
+    \ostat = \sum_{i=1}^{j} \sum_{j=1}^{N_p} \sum_{k=1}^{\lr{N_f}_{ij}} \frac{\Gamma_{ij} \, \bar{S}_{h0}(f_k)}{P_i(f_k) \, P_j(f_k)} s_{ijk},
 \end{align}
-The summations should be followed from the inside out, where the number of frequency bins for a particular pair of pulsars is $\lr{N_f}_{ij}$, and the number of pulsars is $N_p$.  To simplify the notation, we will replace the triple summation in Eq.~\ref{eq:optimal_statistic} with $\sum_{ijk}$.  The filtered and noise-weighted cross-correlation between pulsars $i$ and $j$, at a frequency $f_k$ is,
+where $\Gamma_{ij} = \lr{3/2} \, \hdfunc(\gamma_{ij})$ is a rescaled Hellings-Downs correlation (Eq.~\ref{eq:hd_hd}), for an angle $\gamma_{ij}$ between pulsar $i$ and $j$; and $\bar{S}_{h0}$ is a template spectrum normalized by the (unknown) amplitude of the GWB spectrum, i.e.~$\bar{S}_{h0} = S_{h0} / A^2_\tr{GWB}$.
+The summations should be followed from the inside out, where the number of frequency bins for a particular pair of pulsars is $\lr{N_f}_{ij}$, and the number of pulsars is $N_p$.  To simplify the notation, we will replace the triple summation in Eq.~\ref{eq:optimal_statistic} with $\sum_{ijk}$.
+% The filtered and noise-weighted cross-correlation between pulsars $i$ and $j$, at a frequency $f_k$ is,
+% \begin{align}
+%     s_{ijk} = 2 \int_{0}^{+\infty} \delta_T(f_k - f') \, \tilde{s}_i(f_k) \, \tilde{s}_j(f')
+%         \frac{S_h(f_k) \, \Gamma_{ij}}{P_i(f_k) \, P_j(f')} \, d f'.
+% \end{align}
+The cross correlation between pulsars $i$ and $j$, at a frequency $f_k$ is,
+% [Rosado+2015] Eq. 21
 \begin{align}
-    s_{ijk} = 2 \int_{0}^{+\infty} \delta_T(f_k - f') \, \tilde{s}_i(f_k) \, \tilde{s}_j(f')
-        \frac{S_h(f_k) \, \Gamma_{ij}}{P_i(f_k) \, P_j(f')} \, d f'.
+    s_{ijk} = \tilde{s}^*_i(f_k) \, \tilde{s}_j(f_k),
 \end{align}
+where $\tilde{s}^*$ denotes the complex conjugate of the signal in Fourier space.
 This optimal statistic is also a `matched filter', comparing the data to a template signal spectrum $S_{h0}$.
-The Fourier transform of the window function, or the approximation to a delta function for a finite time-span $\tobs$, is:
-\begin{align}
-    \delta_T(f) \equiv \frac{\sin\lr{\pi f \tobs}}{\pi f}.
-\end{align}
+% The Fourier transform of the window function, or the approximation to a delta function for a finite time-span $\tobs$, is:
+% \begin{align}
+%     \delta_T(f) \equiv \frac{\sin\lr{\pi f \tobs}}{\pi f}.
+% \end{align}
 The mean statistic in the presence of a GW signal is,
 \begin{align}
     \langle \ostat(\tr{GW}) \rangle = \sum_{ijk} \frac{\Gamma_{ij}^2 \, S_h(f_k) \, S_{h0}(f_k)}{P_i(f_k) \, P_j(f_k)},
@@ -731,14 +744,14 @@ For a (correctly) matched filter, i.e.~$S_{h0} = S_h$, the SNR is then $\langle 
 
 \section{Super-Massive Black-Hole Binaries}\label{sec:mbhbs}
 
-\introref{For additional details, we refer the reader to the chapter in this volume on SMBHs \needcite{}.}
+\introref{For additional details, we refer the reader to the chapter in this volume on SMBHs, Dror 2025.}
 
 As introduced in Sec.~\ref{sec:intro}, \term{super-massive black-hole binaries (SMBHBs)} have long been proposed as sources of the loudest gravitational waves in the Universe.  SMBHs, when accreting sufficient amounts of gas, are visible as `\term{active galactic nuclei (AGN)}', with many quasars (the brightest examples of AGNs) observed from even the very distant and early Universe.  More locally, where the kinematics of gas and/or stars can be resolved in the central $\sim\pc$ of galaxies, dynamical modeling demonstrates the presence of SMBHs in galactic nuclei even when they're inactive.  Observations are consistent with virtually all galaxies hosting an SMBH in their center.  SMBH masses are observed to be tightly correlated with host-galaxy properties \citep{Kormendy+Ho-2013}.  Many empirical relationships have been derived, with the SMBH-mass~vs.~stellar velocity-dispersion relation (\msigma{}) typically regarded as the most precise, but the SMBH-mass~vs.~stellar bulge-mass relation (\mmbulge{}) often being the most convenient.  SMBH masses in the local Universe ($z\approx 0$) are well described by a log-normal distribution with mean and standard deviation (\textit{Ibid.}),
 \begin{align}
     \logten{\frac{\mbh}{\msol}} \sim \mathcal{N}\lr{\mu + \alpha_\mu \, \logten{\frac{M_\tr{bulge}}{10^{11} \, \msol}}, \epsilon_\mu} \\
     \mu \approx 8.69 \pm 0.05, \msp \msp \alpha_\mu \approx 1.17 \pm 0.08, \msp \msp \epsilon_\mu \approx 0.28.
 \end{align}
-An effective heuristic is that SMBH masses are $200$ times less than the galaxy stellar mass\footnote{The fraction of stellar mass in the stellar bulge, the `bulge fraction' $\fbulge$, varies by a factor of a few, but for the high-mass SMBHs of interest to PTAs, $\fbulge \gtrsim 0.7$}, with a standard deviation close to a factor of two {\color{red}JR: factor of 2 times what?}.
+An effective heuristic is that SMBH masses are $200$ times less than the galaxy stellar mass\footnote{The fraction of stellar mass in the stellar bulge, the `bulge fraction' $\fbulge$, varies by a factor of a few, but for the high-mass SMBHs of interest to PTAs, $\fbulge \gtrsim 0.7$}, with a standard deviation close to a factor of two in log-space.
 
 Structure formation in the Universe is fundamentally hierarchical in nature, with massive galaxies growing through the merger of many smaller galaxies.  While galaxy mergers are abundantly identified in galaxy surveys, the difficulty of associating a lifetime to those mergers makes the calculation of a galaxy merger-rate non-trivial.  Typical merger rate estimates are either calculated directly from cosmological hydrodynamic simulation, or utilize their merger timescales to normalize observational counts of galaxy pairs.  A comprehensive fit to simulated galaxy merger rates are provided by \citet{Rodriguez-Gomez+2015}.  For parameters near those most important for PTAs, their results can be \textit{very-roughly} approximated as:
 \begin{align}
@@ -761,7 +774,7 @@ A variety of `\term{environmental interactions}' between the binary and componen
 
 In the dynamical friction regime, both SMBHs are initially fully embedded within their host galaxies.  In the early stages, the dominant mass-constituents are the two dark-matter halos, although stars and sometimes gas are non-negligible.  Conceptually, and in simplified calculations, we often consider the secondary SMBH/galaxy inspiraling into the halo/galaxy of the primary.  The standard, idealized model of dynamical friction developed by  \citet{Chandrasekhar-1943} considers a point-mass moving through a uniform, gravitating background that then becomes perturbed.  This model wouldn't seem to hold at all: the two galaxies are comparable in size, and thus fundamentally extended; similarly, there is no uniform background of material; and galaxy mergers are typically highly disruptive.
 
-Oddly then, the simplified formalism of dynamical friction still agrees fairly well with detailed simulations.  Two key considerations are, however, important.  First, accounting for `stripping' of the secondary galaxy: as it inspirals, the furthest-out and least-bound material is gradually removed and deposited into the outer regions of the primary galaxy.  This is induced both by tidal forces and ram-pressure ablation from the head wind that the secondary experiences.  After a few dynamical times, the secondary galaxy will be stripped from the secondary SMBH, leaving only a tightly bound core of stars and gas.  Second, accounting for the multi-component radially-stratified density and velocity profiles of the primary galaxy. {\color{red}JR: The previous sentence is incomplete; missing some extra words??} As the secondary transitions from the primary's halo to the galaxy proper, the effective `background' material transitions from dark matter to stars and gas.  More generally, the density and relative velocities of each components change significantly with radius which must be accounted for.
+Oddly then, the simplified formalism of dynamical friction still agrees fairly well with detailed simulations.  Two key considerations are, however, important.  First, accounting for `stripping' of the secondary galaxy: as it inspirals, the furthest-out and least-bound material is gradually removed and deposited into the outer regions of the primary galaxy.  This is induced both by tidal forces and ram-pressure ablation from the head wind that the secondary experiences.  After a few dynamical times, the secondary galaxy will be stripped from the secondary SMBH, leaving only a tightly bound core of stars and gas.  Second, accounting for the multi-component radially-stratified composition of the post-merger galaxy: the density and velocity of the dark matter, stars and gas each change significantly, and independently, with radius which much be modeled.
 
 It is expected that the dynamical friction phase is not always successful in that the secondary SMBH can `\term{stall}' in the outskirts of the primary galaxy, typically at $\sim \kpc$ scales.  This is more common in more-extreme mass-ratio mergers ($q \lesssim 10^{-1}$) and/or less penetrating initial orbits (initial pericenter distances $\gtrsim 1 \, \kpc$), which produce the satellite/dwarf galaxies and tidal streams seen in the Milky Way.  In these cases, the secondary never reaches sufficiently high densities, and/or tidal stripping decreases the secondary mass too quickly.  The resulting `wandering' or `orphan' SMBHs in galaxy outskirts would be difficult to detect or constrain even within the Milky Way as these SMBHs are far less likely to be accreting.  Lensing surveys of the halo, and possibly `tidal disruption events' (TDEs; described below) are likely the best channels.
 
@@ -775,7 +788,8 @@ Despite this growing consensus, stellar scattering remains very difficult to mod
 
 \subsubsection{Circumbinary Disks and Torques}
 
-\needcite{Cross-reference Diego's Circumbinary disk chapter.}
+% \needcite{Cross-reference Diego's Circumbinary disk chapter.}
+\introref{For additional details, we refer the reader to the chapter in this volume on circumbinary accretion disks, Mu{\~n}oz 2025.}
 
 In accretion disks, internal `viscous' stresses transport angular momentum outwards which allows material to move inwards.  Around compact objects, the viscous stresses are produced by the `magneto-rotational instability' (MRI).  When a second, massive object is added as a binary companion within an accretion disk, three distinct regions form, depicted in Fig.~\ref{fig:cbd-electromagnetics}(a).  At large radii, much larger than the binary separation ($r \gg a$), the `\term{circumbinary disk}' (grey) behaves as if it were around a single-object, now with the combined mass of both components.  At small radii surrounding each component---specifically well-within each's Hill surface ($r \lesssim r_\tr{hill}$)---two `circumsingle disks' behave like perturbed single accretion disks around the primary (red) and secondary (blue).  At intermediate radii ($r_\tr{hill} < r \lesssim 2 a$), orbiting material is no longer stable and a `gap' is cleared.
 
@@ -826,7 +840,7 @@ Ruling out the presence of a non-accreting (or accreting, but spatially unresolv
 
 Three processes are believed to produce detectable periodic changes in brightness for one or both accreting SMBHs that are specifically in a binary system.
 \begin{itemize}
-\item \textbf{Binary-induced, hydrodynamic variability.}  Simulations of circumbinary accretion, illustrated in Fig.~\ref{fig:cbd-electromagnetics}(a), show strong periodic modulations of the accretion rate onto one or both components of the binary \citep{Farris+2014}.  Depending on the detailed configuration of the system, the accretion rate can be predominantly modulated on the orbital period: as one of the SMBHs passes near the edge of the circumbinary accretion disk, `grabbing' material; or at the orbital period of the inner-edge of the circumbinary accretion disk itself (a few times the binary orbital period).  If the emission from any of the accretion disks follows the accretion rate changes without too much damping, the overall brightness of the SMBHs can retain some degree of periodic modulation.  Shocks periodically produces within the inner circumsingle or circumbinary accretion disks may also be observably periodic.  More detailed study of the emission produced with variable accretion rates is required to make better predictions for hydrodynamically-induced photometric variability.
+\item \textbf{Binary-induced, hydrodynamic variability.}  Simulations of circumbinary accretion, illustrated in Fig.~\ref{fig:cbd-electromagnetics}(a), show strong periodic modulations of the accretion rate onto one or both components of the binary \citep{Farris+2014}.  Depending on the detailed configuration of the system, the accretion rate can be predominantly modulated on the orbital period: as one of the SMBHs passes near the edge of the circumbinary accretion disk, `grabbing' material; or at the orbital period of the inner-edge of the circumbinary accretion disk itself (a few times the binary orbital period).  If the emission from any of the accretion disks follows the accretion rate changes without too much damping, the overall brightness of the SMBHs can retain some degree of periodic modulation.  Shocks periodically produced within the inner circumsingle or circumbinary accretion disks may also be observably periodic.  More detailed study of the emission produced with variable accretion rates is required to make better predictions for hydrodynamically-induced photometric variability.
 \item \textbf{Gravitational self-lensing.}  Binaries oriented nearly edge-on to the observer will have one (or both) components pass in front of the other.  The strong gravitational field of the foreground component can then gravitational lense and significantly brighten the emission from the background component \citep{D'Orazio+DiStefano-2018}, illustrated in Fig.~\ref{fig:cbd-electromagnetics}(d).  Such an event would produce a `lensing flare' with a duration significantly shorter than the binary orbital period and also typically shorter than much of the typical intrinsic-variability of AGN accretion disks, making them easier to identify.  Depending on the detailed configuration of the binary, these lensing events may be chromatic, providing additional means of excluding false positives and additional information about the accretion disk structure.
 \item \textbf{Doppler boosting.}  Particularly in unequal-mass binaries, the secondary component can reach mildly-relativistic velocities which can then produce detectable Doppler-induced variations in brightness modulated on the orbital period \citep{D'Orazio+2015}, illustrated in Fig.~\ref{fig:cbd-electromagnetics}(b).  Doppler boosting would again preferentially occur in systems that are nearly edge-on.  Additionally, because both self lensing and Doppler boosting can be directly connected to the binary orbital phase, these two signatures could at times be identified in tandem.
 \end{itemize}
@@ -835,7 +849,7 @@ Three processes are believed to produce detectable periodic changes in brightnes
 
 As described above, the velocity of the SMBHs along the observer's line of sight will produce Doppler boosts.  In addition to increasing and decreasing the brightness of broadband emission, Doppler shifts will change the frequency/wavelength of emitted spectral lines.  Doppler shifted line emission from the circumsingle accretion disks, particularly from the faster-moving secondary, can thus reveal the presence of binary orbital motion.  This is illustrated in Fig.~\ref{fig:cbd-electromagnetics}(e).  The optimal signature would be a broad line that is observed to be time-variable, requiring orbital periods shorter than decades.  Instantaneously-offset broad lines could also signature the presence of a binary, however typical broad lines from single AGN are often asymmetric, offset, and time-variable.  As for periodic photometric variability this likely explains most of the existing spectroscopically-identified binary candidates.  Again, how to filter out false positives remains unclear and an important direction of ongoing research.
 
-Dynamical considerations determine whether a given orbital configuration can plausibly be detected by spectroscopic offsets \cite{Kelley+2021}.  First, the broad-line emitting region must be located at radii that are within the Hill sphere of one or the other binary component.  Second, the projected velocity-offset must be larger than the accuracy by which the emission line `center' can be identified.  Instrumentally, this typically requires $v_\textrm{orb} \gtrsim 10^3 \textrm{ km s}^{-1}$.  These two criteria already significantly restrict the viable parameter space of detectable binaries, such that only a small fraction of all binaries would be detectable.  Much more challenging, however, is the intrinsic variability of normal AGN broad-lines, both in time and across populations. This implies that a selection criterion closer to $v_\textrm{orb} \gtrsim 10^4 \textrm{ km s}^{-1}$, and/or requiring time-changing offsets consistent with orbital motion, should be required.  Either more stringent criteria makes detections fairly unlikely.  Shifted X-Ray broad lines offer a much more promising portion of parameter space, however X-Ray spectroscopic instruments are much more limited in their resolution and sensitivity.
+Dynamical considerations determine whether a given orbital configuration can plausibly be detected by spectroscopic offsets \citep{Kelley+2021}.  First, the broad-line emitting region must be located at radii that are within the Hill sphere of one or the other binary component.  Second, the projected velocity-offset must be larger than the accuracy by which the emission line `center' can be identified.  Instrumentally, this typically requires $v_\textrm{orb} \gtrsim 10^3 \textrm{ km s}^{-1}$.  These two criteria already significantly restrict the viable parameter space of detectable binaries, such that only a small fraction of all binaries would be detectable.  Much more challenging, however, is the intrinsic variability of normal AGN broad-lines, both in time and across populations. This implies that a selection criterion closer to $v_\textrm{orb} \gtrsim 10^4 \textrm{ km s}^{-1}$, and/or requiring time-changing offsets consistent with orbital motion, should be required.  Either more stringent criteria makes detections fairly unlikely.  Shifted X-Ray broad lines offer a much more promising portion of parameter space, however X-Ray spectroscopic instruments are much more limited in their resolution and sensitivity.
 
 
 \subsubsection{Other possible signatures}\label{sec:ems_other}
@@ -881,15 +895,15 @@ Over the next few years, PTAs are poised to either (i) answer long-standing ques
 % ==============================================================================
 
 
-% \begin{ack}[Acknowledgments]
-% %! --- NEED A BLANK LINE HERE (without comment)
+\begin{ack}[Acknowledgments]
+%! --- NEED A BLANK LINE HERE (without comment)
 
-% Acknowledgments.
-% \end{ack}
+Special thanks to Joseph Romano and Jeff Andrews for invaluable comments on drafts of this article, and to Bruce Allen for elucidating conversations and very patient explanations.
+\end{ack}
 
 
-% \bibliographystyle{Harvard}
-\bibliographystyle{aasjournal}
+\bibliographystyle{Harvard}
+% \bibliographystyle{aasjournal}
 \bibliography{refs}
 
 \end{document}
