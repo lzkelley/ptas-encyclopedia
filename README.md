@@ -11,10 +11,7 @@ I apologize to my colleagues for not better availing myself of their expertise i
 
 **Compiling**: The `build.sh` script in the repository home directory can be used to compile the latex into a PDF which is copied into the home directory.
 
-**Contributing**: comments/suggestions/improvements are all **very welcome**.  Please feel free to make contributions by:
-* Adding 'issues' or 'pull requests' to [the github](https://github.com/lzkelley/ptas-encyclopedia),
-* Editing [the overleaf](https://www.overleaf.com/project/67ab8c4d6a79b09f7882bec9) [NOTE: e-mail me to get edit access],
-* e-mailing suggestions to me directly.
+**Contributing**: comments/suggestions/improvements are all **very welcome**.  Contributions, suggestions, and error-corrections are encouraged - please submit an 'issue' or 'pull request' on [the github](https://github.com/lzkelley/ptas-encyclopedia).
 
 ## Figures
 
