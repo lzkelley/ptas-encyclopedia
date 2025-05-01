@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUT_DIR="ptas-encyclopedia"
+OUT_DIR="ptas-encyclopedia_v1.0"
 INP_DIR="./manuscript"
 
 # Ensure the target directory does not exist; otherwise, exit with an error
@@ -11,7 +11,7 @@ fi
 
 # Define an array of files
 # files=("Harvard.bst" "booksetup.sty" "commands.tex" "els-mrw.cls" "figs" "journals.tex" "ptas-encyclopedia.tex" "refs.bib")
-files=("booksetup.sty" "commands.tex" "els-mrw.cls" "figs" "journals.tex" "ptas-encyclopedia.tex" "refs.bib")
+files=("booksetup.sty" "commands.tex" "els-mrw.cls" "figs" "journals.tex" "ptas-encyclopedia.tex" "refs.bib" "out/ptas-encyclopedia.bbl")
 
 echo "Making output directory..."
 mkdir ${OUT_DIR}

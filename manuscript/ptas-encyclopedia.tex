@@ -35,6 +35,19 @@
     pdfpagemode=FullScreen,
 }
 
+% \renewcommand{\odv}[2]{\frac{\partial{}{{#1}}}{\partial{}{{#2}}} }
+\renewcommand{\odv}[3][]{
+    \ifthenelse{\equal{#1}{}}{
+        % omitted
+        \frac{\partial{}{{#2}}}{\partial{}{{#3}}}
+    }{
+        % given
+        \frac{\partial{}^{#1}{{#2}}}{\partial{}{{#3}}^{#1}}
+    }
+}
+
+
+
 % ==============================================================================
 % ====    Front Matter   ====
 % ==============================================================================
@@ -164,7 +177,7 @@ There are tremendous theoretical uncertainties about nearly every aspect of SMBH
 
 \subsection{Waves in General Relativity}\label{sec:gws_gr-waves}
 
-\introref{For additional details, we refer the reader to \citet{MTW-1973}, and the chapter in this volume on GWs \needcite{}.}
+\introref{For additional details, we refer the reader to \citet{MTW-1973}, and the chapter in this volume on GW production (Dror 2025) and detection (Farr 2025).}
 
 The structure and shape of spacetime is described by the \term{metric tensor} $\gmn$, such that the invariant length element of spacetime can be calculated as,
 \begin{align}\label{eq:metric}
@@ -744,7 +757,7 @@ For a (correctly) matched filter, i.e.~$S_{h0} = S_h$, the SNR is then $\langle 
 
 \section{Super-Massive Black-Hole Binaries}\label{sec:mbhbs}
 
-\introref{For additional details, we refer the reader to the chapter in this volume on SMBHs, Dror 2025.}
+\introref{For additional details, we refer the reader to the chapters in this volume on SMBHs (Beckmann \& Smethurst 2025), and SMBH Binaries (Foord 2025).}
 
 As introduced in Sec.~\ref{sec:intro}, \term{super-massive black-hole binaries (SMBHBs)} have long been proposed as sources of the loudest gravitational waves in the Universe.  SMBHs, when accreting sufficient amounts of gas, are visible as `\term{active galactic nuclei (AGN)}', with many quasars (the brightest examples of AGNs) observed from even the very distant and early Universe.  More locally, where the kinematics of gas and/or stars can be resolved in the central $\sim\pc$ of galaxies, dynamical modeling demonstrates the presence of SMBHs in galactic nuclei even when they're inactive.  Observations are consistent with virtually all galaxies hosting an SMBH in their center.  SMBH masses are observed to be tightly correlated with host-galaxy properties \citep{Kormendy+Ho-2013}.  Many empirical relationships have been derived, with the SMBH-mass~vs.~stellar velocity-dispersion relation (\msigma{}) typically regarded as the most precise, but the SMBH-mass~vs.~stellar bulge-mass relation (\mmbulge{}) often being the most convenient.  SMBH masses in the local Universe ($z\approx 0$) are well described by a log-normal distribution with mean and standard deviation (\textit{Ibid.}),
 \begin{align}
@@ -789,7 +802,7 @@ Despite this growing consensus, stellar scattering remains very difficult to mod
 \subsubsection{Circumbinary Disks and Torques}
 
 % \needcite{Cross-reference Diego's Circumbinary disk chapter.}
-\introref{For additional details, we refer the reader to the chapter in this volume on circumbinary accretion disks, Mu{\~n}oz 2025.}
+\introref{For additional details, we refer the reader to the chapter in this volume on circumbinary accretion disks (Mu{\~n}oz 2025).}
 
 In accretion disks, internal `viscous' stresses transport angular momentum outwards which allows material to move inwards.  Around compact objects, the viscous stresses are produced by the `magneto-rotational instability' (MRI).  When a second, massive object is added as a binary companion within an accretion disk, three distinct regions form, depicted in Fig.~\ref{fig:cbd-electromagnetics}(a).  At large radii, much larger than the binary separation ($r \gg a$), the `\term{circumbinary disk}' (grey) behaves as if it were around a single-object, now with the combined mass of both components.  At small radii surrounding each component---specifically well-within each's Hill surface ($r \lesssim r_\tr{hill}$)---two `circumsingle disks' behave like perturbed single accretion disks around the primary (red) and secondary (blue).  At intermediate radii ($r_\tr{hill} < r \lesssim 2 a$), orbiting material is no longer stable and a `gap' is cleared.
 
