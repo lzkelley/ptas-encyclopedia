@@ -10,7 +10,8 @@ if [ -e "$OUT_DIR" ]; then
 fi
 
 # Define an array of files
-files=("Harvard.bst" "booksetup.sty" "commands.tex" "els-mrw.cls" "figs" "journals.tex" "ptas-encyclopedia.tex" "refs.bib")
+# files=("Harvard.bst" "booksetup.sty" "commands.tex" "els-mrw.cls" "figs" "journals.tex" "ptas-encyclopedia.tex" "refs.bib")
+files=("booksetup.sty" "commands.tex" "els-mrw.cls" "figs" "journals.tex" "ptas-encyclopedia.tex" "refs.bib")
 
 echo "Making output directory..."
 mkdir ${OUT_DIR}
